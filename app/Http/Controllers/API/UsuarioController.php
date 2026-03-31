@@ -10,30 +10,30 @@ class UsuarioController extends Controller
 {
     public function index()
     {
-        return response()->json(usuario::all(), 200);
+        return response()->json(Usuario::all(), 200);
     }
 
     public function store(Request $request)
     {
-        $usuario = usuario::create($request->all());
+        $usuario = Usuario::create($request->all());
         return response()->json($usuario, 201);
     }
 
     public function show($id)
     {
-        return response()->json(usuario::findOrFail($id));
+        return response()->json(Usuario::findOrFail($id));
     }
 
     public function update(Request $request, $id)
     {
-        $usuario = usuario::findOrFail($id);
+        $usuario = Usuario::findOrFail($id);
         $usuario->update($request->all());
         return response()->json($usuario);
     }
 
     public function destroy($id)
     {
-        usuario::destroy($id);
+        Usuario::destroy($id);
         return response()->json(['message' => 'Eliminado']);
     }
 }
