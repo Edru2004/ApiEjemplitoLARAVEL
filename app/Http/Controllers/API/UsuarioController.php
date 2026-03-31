@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 
 class UsuarioController extends Controller
 {
-    // LISTAR TODOS
+    // LISTAR TODOS (Corregido)
     public function index()
     {
-        return response()->json(Usuario::with('roles')->get(), 200);
+        return response()->json(Usuario::all(), 200);
     }
 
     // CREAR
@@ -28,9 +28,7 @@ class UsuarioController extends Controller
     // MOSTRAR UNO
     public function show($id)
     {
-        return response()->json(
-            Usuario::with('roles')->findOrFail($id)
-        );
+        return response()->json(Usuario::findOrFail($id));
     }
 
     // ACTUALIZAR
