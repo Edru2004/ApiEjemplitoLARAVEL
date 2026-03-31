@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 class UsuarioController extends Controller
 {
-    // LISTAR TODOS (Corregido)
+    // LISTAR TODOS
     public function index()
     {
         return response()->json(Usuario::all(), 200);
@@ -18,11 +18,7 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $usuario = Usuario::create($request->all());
-
-        return response()->json([
-            'message' => 'Usuario creado',
-            'data' => $usuario
-        ], 201);
+        return response()->json(['message' => 'Usuario creado', 'data' => $usuario], 201);
     }
 
     // MOSTRAR UNO
@@ -36,19 +32,13 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::findOrFail($id);
         $usuario->update($request->all());
-
-        return response()->json([
-            'message' => 'Usuario actualizado'
-        ]);
+        return response()->json(['message' => 'Usuario actualizado']);
     }
 
     // ELIMINAR
     public function destroy($id)
     {
         Usuario::destroy($id);
-
-        return response()->json([
-            'message' => 'Usuario eliminado'
-        ]);
+        return response()->json(['message' => 'Usuario eliminado']);
     }
 }
