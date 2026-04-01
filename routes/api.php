@@ -19,7 +19,7 @@ use App\Http\Controllers\API\UsuarioRolController;
 
 Route::get('/', function () {
     return response()->json([
-        'status' => 'API  de Dulce funcionando correctamente'
+        'status' => 'API de Dulce funcionando correctamente'
     ]);
 });
 
