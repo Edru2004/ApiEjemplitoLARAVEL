@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre'); // Nombre de la materia (ej. Bases de Datos)
+            $table->text('descripcion')->nullable(); // Descripción opcional
+            $table->integer('creditos'); // Cantidad de créditos
+            
+            // Si ya tienes la tabla carreras, esto crea la relación:
+            $table->unsignedBigInteger('carrera_id');
+            $table->foreign('carrera_id')->references('id')->on('carreras')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
