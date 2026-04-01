@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre'); // <-- Agregamos el nombre
+            $table->text('descripcion')->nullable(); // <-- Agregamos la descripción opcional
             $table->timestamps();
         });
     }
